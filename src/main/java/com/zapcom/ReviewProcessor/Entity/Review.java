@@ -1,6 +1,7 @@
 package com.zapcom.ReviewProcessor.Entity;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,34 +23,29 @@ public class Review {
 
     private LocalDateTime reviewedAt;
 
-    // Optional: Hotel name or ID, if needed (though you're storing reviews for only one hotel)
-    private String companay = "Cult Fit Madhapur"; // hardcoded or configured externally
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     private String category;
-    public Review() {
-        // default constructor
-    }
 
-    public Review(String review_id,String reviewerName, String content, int rating, LocalDateTime reviewedAt,String category) {
-        this.reviewId=review_id;
+    private String companay = "Cult Fit Madhapur";
+
+    public Review(String reviewId, String reviewerName, String content, int rating, LocalDateTime reviewedAt, String category) {
+        this.reviewId = reviewId;
         this.reviewerName = reviewerName;
         this.content = content;
         this.rating = rating;
         this.reviewedAt = reviewedAt;
-        this.category=category;
+        this.category = category;
     }
 
-    // Getters and setters
+    public Review() {
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getReviewId() {
@@ -90,6 +86,14 @@ public class Review {
 
     public void setReviewedAt(LocalDateTime reviewedAt) {
         this.reviewedAt = reviewedAt;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getCompanay() {

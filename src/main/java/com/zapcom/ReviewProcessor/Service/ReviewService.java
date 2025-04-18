@@ -35,7 +35,7 @@ public class ReviewService {
 
     private Logger logger= LoggerFactory.getLogger(ReviewService.class);
 
-    @Scheduled(fixedRate = 12*60 * 60 * 1000) // every 12 hours
+    @Scheduled(fixedRate = 12*60 * 60 * 1000)
     public void scheduledReviewFetch()  {
         logger.info("Scheduler triggered at: {}", LocalDateTime.now());
         try {
@@ -75,7 +75,7 @@ public class ReviewService {
                             reviewRepository.save(review);
                         }
                         else{
-                            logger.info("review already saved in database");
+                            logger.info("Review already saved in database");
                         }
                     }
                 }
